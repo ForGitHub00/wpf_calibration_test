@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_calibration_test"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="900">
+    <Grid Background="#FFFFF9C0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <Button x:Name="bt_draw" Content="Draw" Click="bt_draw_Click"/>
+            <Slider x:Name="slider_AngleOFTriangle" Maximum="90" Minimum="10" SmallChange="1" TickPlacement="TopLeft" Value="90" ValueChanged="slider_ValueChanged" IsSnapToTickEnabled="True"/>
+            <Label x:Name="lb_AngleOFTriangle" Content="AngleOFTriangle = 90"/>
+            <Slider x:Name="slider_LengthOfTriangle" TickPlacement="TopLeft" Minimum="25" Maximum="700" IsSnapToTickEnabled="True" ValueChanged="slider_LengthOfTriangle_ValueChanged" Value="250"/>
+            <Label x:Name="lb_LengthOfTriangle" Content="LengthOfTriangle = 250"/>
+        </StackPanel>
+        <Canvas x:Name="cnv" Background="#FFFDCBCB" Grid.Column="0" SizeChanged="cnv_SizeChanged" MouseMove="cnv_MouseMove" MouseLeave="cnv_MouseLeave"/>
+
     </Grid>
 </Window>
